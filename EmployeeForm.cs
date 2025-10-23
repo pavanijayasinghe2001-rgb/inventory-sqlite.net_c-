@@ -1,0 +1,36 @@
+
+using System.Windows.Forms;
+
+public class EmployeeForm : Form
+{
+    public TextBox nameTextBox, positionTextBox, salaryTextBox;
+    private Button saveButton, cancelButton;
+
+    public EmployeeForm(string title = "Add Employee")
+    {
+        Text = title;
+        Size = new System.Drawing.Size(300, 250);
+        FormBorderStyle = FormBorderStyle.FixedDialog;
+        StartPosition = FormStartPosition.CenterScreen;
+        MaximizeBox = false;
+
+        nameTextBox = new TextBox { Location = new System.Drawing.Point(50, 30), Width = 200 };
+        positionTextBox = new TextBox { Location = new System.Drawing.Point(50, 70), Width = 200 };
+        salaryTextBox = new TextBox { Location = new System.Drawing.Point(50, 110), Width = 200 };
+
+        saveButton = new Button { Text = "Save", Location = new System.Drawing.Point(50, 150), DialogResult = DialogResult.OK };
+        cancelButton = new Button { Text = "Cancel", Location = new System.Drawing.Point(160, 150), DialogResult = DialogResult.Cancel };
+
+        Controls.Add(new Label { Text = "Name:", Location = new System.Drawing.Point(50, 10) });
+        Controls.Add(nameTextBox);
+        Controls.Add(new Label { Text = "Position:", Location = new System.Drawing.Point(50, 50) });
+        Controls.Add(positionTextBox);
+        Controls.Add(new Label { Text = "Salary:", Location = new System.Drawing.Point(50, 90) });
+        Controls.Add(salaryTextBox);
+        Controls.Add(saveButton);
+        Controls.Add(cancelButton);
+
+        AcceptButton = saveButton;
+        CancelButton = cancelButton;
+    }
+}
